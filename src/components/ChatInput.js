@@ -93,5 +93,4 @@ const getData = async () => {
 
 export default ChatInput
 
-{/* <input type="text" placeholder="send..." onKeyPress={(e)=>textHandler(e)} onChange={(e)=>typingHandler(e)}/> */}
 
