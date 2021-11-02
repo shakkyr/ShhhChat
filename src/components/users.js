@@ -6,7 +6,10 @@ const Users = () => {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
-    getUsers();
+    const intervalId = setInterval(() => {
+        getUsers()
+      }, 5000) // in milliseconds
+      return () => clearInterval(intervalId)
   }, []);
 
   const getUsers = async () => {
@@ -24,7 +27,7 @@ const Users = () => {
 
   return users.map((usr) => {
     return (
-      <div className="users" id={usr.id}>
+      <div className="users" key={usr.id}>
         <img
           alt="user"
           className="userImage"
