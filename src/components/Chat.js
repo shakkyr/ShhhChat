@@ -4,17 +4,21 @@ import ChatInput from "./ChatInput";
 // import axios from "axios";
 import Users from "./users";
 import DialogBox from "./DdialogBox";
+import { useHistory } from 'react-router-dom';
+
 const Chat = () => {
-  // const [state, setState] = useState([]);
-  // const [chat, setChat] = useState([]);
+  let history = useHistory();
 
   useEffect(() => {
-    // getData();
-    // getChat();
+    
   }, []);
 
   
- 
+  const handleLogOut = (event) => {
+    event.preventDefault();
+    history.push('/')
+    
+  }
 
  
 
@@ -23,6 +27,7 @@ const Chat = () => {
       <div className="leftSide">
         <div className="usersList">
           here will be the users
+          <input type="button" value="logOut" onClick={(e)=>handleLogOut(e)}/>
           <Users />
         </div>
         <div className="chatText">

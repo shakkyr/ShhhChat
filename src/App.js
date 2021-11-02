@@ -1,5 +1,5 @@
 import Chat from './components/Chat';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import React from 'react'
 import Login from './components/LogIn'
@@ -9,15 +9,7 @@ const App = ()=> {
     return (
         <Router>
           <div className="navigation">
-            <ul className="navbar">
-              <li key={1}>
-                <Link to="/">Login</Link>
-              </li>
-              <li key={2}>
-                <Link to="/Chat">Chat Page</Link>
-              </li>
            
-            </ul>
     
             <hr />
     

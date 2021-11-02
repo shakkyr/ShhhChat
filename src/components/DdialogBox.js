@@ -7,7 +7,7 @@ const [messages, setMessages] = useState([]);
 useEffect(()=>{
     const intervalId = setInterval(() => {
         getMessages()
-      }, 2000) // in milliseconds
+      }, 5000) // in milliseconds
       return () => clearInterval(intervalId)
 },[])
 
