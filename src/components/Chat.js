@@ -5,6 +5,7 @@ import ChatInput from "./ChatInput";
 import Users from "./users";
 import DialogBox from "./DdialogBox";
 import { useHistory } from 'react-router-dom';
+// import Emoji from "./emoji";
 
 const Chat = () => {
   let history = useHistory();
@@ -31,8 +32,7 @@ const Chat = () => {
           <Users />
         </div>
         <div className="chatText">
-        here i will place my text
-        <ChatInput />
+        <ChatInput/>
           {/* <ChatInput /> */}
         </div>
       </div>

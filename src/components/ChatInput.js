@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import InputEmoji from 'react-input-emoji'
 
 
 const ChatInput = ({id})=> {
@@ -8,6 +9,7 @@ const ChatInput = ({id})=> {
 const [chatBar, setChatBar] = useState('');
 const [text, setText] = useState('');
 const [time, setTime] = useState('');
+
 
 useEffect(()=> {
 
@@ -49,31 +51,47 @@ const getData = async () => {
 
 
 
-  const textHandler =(e)=>{
+  // const textHandler =(e)=>{
     
-      if (e.key=== 'Enter')
-      setChatBar(text)
-      let today = new Date();
-        setTime(today)
-  }
+  //     if (e.key=== 'Enter')
+  //     setChatBar(text)
+  //     let today = new Date();
+  //       setTime(today)
+  // }
 
-  const typingHandler = (e)=> {
-    setText(e.target.value)
+  // const typingHandler = (e)=> {
+  //   setText(e.target.value)
     
     
     
-  }
+  // }
+   function handleOnEnter (text) {
+        console.log('enter', text)
+        setText(text)
+        setChatBar(text)
+        let today = new Date();
+          setTime(today)
+        
+        
+      }
 
-  console.log(chatBar);
+  
 
 
     return (
-        <div>
-           
-<input type="text" placeholder="send..." onKeyPress={(e)=>textHandler(e)} onChange={(e)=>typingHandler(e)}/>
-        </div>
+      <InputEmoji
+      value={text}
+      
+      cleanOnEnter
+      onEnter={handleOnEnter}
+      // onKeyPress={(e)=>textHandler(e)}
+      // onChange={typingHandler}
+      placeholder="Type a message"
+    />
     )
 }
 
 export default ChatInput
+
+{/* <input type="text" placeholder="send..." onKeyPress={(e)=>textHandler(e)} onChange={(e)=>typingHandler(e)}/> */}
 
