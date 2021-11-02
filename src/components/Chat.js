@@ -1,11 +1,10 @@
 import React, {  useEffect } from "react";
 import "./Chat.css";
 import ChatInput from "./ChatInput";
-// import axios from "axios";
 import Users from "./users";
 import DialogBox from "./DdialogBox";
 import { useHistory } from 'react-router-dom';
-// import Emoji from "./emoji";
+
 
 const Chat = () => {
   let history = useHistory();
@@ -14,14 +13,11 @@ const Chat = () => {
     
   }, []);
 
-  
   const handleLogOut = (event) => {
     event.preventDefault();
     history.push('/')
     
   }
-
- 
 
   return (
     <div className="chatBox">
@@ -45,30 +41,3 @@ const Chat = () => {
 };
 
 export default Chat;
-
-// (
-//   <div className="chat">
-//     <div className="chat__header">
-
-//       <div className="chat__headerInfo">
-
-//         <p>last seen </p>
-//       </div>
-
-//       <div className="chat__headerRight">
-
-//       </div>
-//     </div>
-
-//     <div className="chat__body">
-
-//     </div>
-//     <div className="chat__footer">
-//       <form onSubmit>
-
-//        <ChatInput id={4}/>
-//       </form>
-
-//     </div>
-//   </div>
-// );

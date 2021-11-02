@@ -17,7 +17,6 @@ useEffect(()=> {
 
 },[chatBar])
 
-
 const getData = async () => {
   if (
     chatBar.trim().length !== 0 &&
@@ -46,46 +45,19 @@ const getData = async () => {
   }
 };
 
-
-
-
-
-
-  // const textHandler =(e)=>{
-    
-  //     if (e.key=== 'Enter')
-  //     setChatBar(text)
-  //     let today = new Date();
-  //       setTime(today)
-  // }
-
-  // const typingHandler = (e)=> {
-  //   setText(e.target.value)
-    
-    
-    
-  // }
-   function handleOnEnter (text) {
+function handleOnEnter (text) {
         console.log('enter', text)
         setText(text)
         setChatBar(text)
         let today = new Date();
           setTime(today)
-        
-        
       }
-
-  
-
 
     return (
       <InputEmoji
-      value={text}
-      
+      value={text}   
       cleanOnEnter
       onEnter={handleOnEnter}
-      // onKeyPress={(e)=>textHandler(e)}
-      // onChange={typingHandler}
       placeholder="Type a message"
     />
     )

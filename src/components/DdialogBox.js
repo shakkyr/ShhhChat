@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 
@@ -7,6 +8,7 @@ const [messages, setMessages] = useState([]);
 useEffect(()=>{
     const intervalId = setInterval(() => {
         getMessages()
+        cheMessages()
       }, 5000) // in milliseconds
       return () => clearInterval(intervalId)
 },[])
@@ -14,9 +16,23 @@ useEffect(()=>{
 const getMessages = async ()=> {
     await axios.get('https://617f9299055276001774fb25.mockapi.io/chatbar')
     .then(res=>{
+       
         setMessages(res.data)
     })
 }
+
+//! ====================== deleting function if the array length arrived the  max limit on api======
+const cheMessages = async ()=> {
+    if(messages.length > 90){
+        for(let i =1 ; i<10; i++){
+            await axios.delete(
+                `https://617f9299055276001774fb25.mockapi.io/chatbar/${i}`
+
+                );
+        }
+    }
+}
+//! ============================================================================================
 
     return messages.map(msg=>{
         return <div className='messages' key={msg.id}>
