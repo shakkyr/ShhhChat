@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.chatBox {
+  background-color: rgb(187, 182, 177);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  justify-self: center;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.2);
+}
+
+.leftSide {
+  border-right: 2px solid black;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.6);
+}
+
+.rightSide {
+  flex: 2;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.6);
+  overflow: scroll;
+}
+
+.usersList {
+  overflow: scroll;
+  width: 100%;
+  height: 90%;
+}
+
+.text {
+  box-sizing: border-box;
+}
+
+.messages {
+  border-bottom: 2px solid black;
+}
+.users {
+  border-bottom: 0.5px solid rgb(167, 167, 167);
+}
+
+.userImage:hover {
+  transform:scale(1.3);
+  cursor: pointer;
+}
+
+.appName {
+  position: fixed;
+  background-color:rgba(0, 0, 0, 0.6);
+  width: 100%;
+  color: whitesmoke;
+  padding: 10px;
+}
