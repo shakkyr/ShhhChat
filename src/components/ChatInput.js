@@ -28,7 +28,7 @@ const getData = async () => {
     let data = {
       input : chatBar,
       createdAt : time,
-      userId :  localStorageName.data.name
+      userId :  localStorageName.data.username
     };
     const res = await axios.post(
       "https://617f9299055276001774fb25.mockapi.io/chatbar",

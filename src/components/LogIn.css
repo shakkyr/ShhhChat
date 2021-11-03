@@ -27,3 +27,7 @@
     color: white;
   }
   
+  .loginInputs {
+    display: flex;
+    flex-direction: column;
+  }
