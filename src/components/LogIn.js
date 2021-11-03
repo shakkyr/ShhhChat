@@ -21,14 +21,29 @@ const Login = () => {
   }, []);
 
   const signIn = async () => {
-  
+    if (
+      name.trim().length !== 0 &&
+      password.trim().length !== 0 &&
+      username.trim().length !== 0
+    ) {
+      let newState = [...state];
+      let find = newState.find((usr) => {
+        if (usr.name === username && usr.username === username) {
+          return usr;
+        }
+      });
+      console.log(find);
+      if (find !== undefined) {
+        alert("user exists");
+      }
+
       let data = {
         name: name,
         password: password,
         username: username,
         createdAt: time,
       };
-      if (!localStorage.getItem("tempStorage")) {
+      if (localStorage.getItem("tempStorage")) {
         localStorage.setItem("tempStorage", JSON.stringify({ data: data }));
       }
       const res = await axios.post(
@@ -47,7 +62,7 @@ const Login = () => {
         setTime("");
       }
     }
-  
+  };
 
   
 
@@ -65,8 +80,11 @@ const Login = () => {
   };
 
   const textHandler = (e) => {
-    let today = new Date();
-    setTime(today);
+     let today = new Date();
+        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        let dateTime = date+' '+time;
+        setTime(dateTime)
   };
 
   const showHidePassword = () => {
