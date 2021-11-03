@@ -6,6 +6,7 @@ import Likes from './Likes';
 const DialogBox = ()=> {
 const [messages, setMessages] = useState([]);
 
+
 useEffect(()=>{
     const intervalId = setInterval(() => {
         getMessages()
@@ -38,7 +39,7 @@ const cheMessages = async ()=> {
     return messages.map(msg=>{
         return <div className='messages' key={msg.id}>
             <h3>{msg.input}</h3>
-            <h6><span style={{color:"brown"}}> From: </span>{msg.userId} recived at: {msg.createdAt}<Likes/></h6>
+            <h6><span style={{color:"brown"}}> From: </span>{msg.userId} recived at: {msg.createdAt}<Likes howManyLikes={msg.Likes}/></h6>
         </div>
     })
 }

@@ -1,10 +1,12 @@
-/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable array-callback-return */
+
 import React, { useEffect, useState } from "react";
 import "./LogIn.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-// import useLocalStorage from 'react-use-localstorage';
+
+
 const Login = () => {
   const [state, setState] = React.useState([]);
   const [name, setName] = useState("");
@@ -13,14 +15,47 @@ const Login = () => {
   const [username, setUserName] = useState("");
   const [time, setTime] = useState("");
   const [userExistsWarning , setUserExistsWarning] = useState(true)
+  const [didMount, setDidMount] = useState(false)
+  const [countryName, setCountryName] = useState('')
 
   let history = useHistory();
 
   useEffect(() => {
+    setDidMount(true);
     signIn();
+    getGeoInfo()
+    return () => setDidMount(false);
+
   }, []);
 
+  console.log(didMount);
+
+  // const checkLocalStorage = () => {
+  //   if (!localStorage.getItem("tempStorage")) {
+  //     localStorage.setItem("tempStorage", JSON.stringify({ data: "" }));
+  //   }
+  // }
+//! ============================ location function ========================
+const getGeoInfo = () => {
+  axios.get('https://ipapi.co/json/').then((response) => {
+      let data = response.data;
+      setCountryName(data.country_name)
+    });
+  }
+      
+//! ======================================================================
+
   const signIn = async () => {
+    let data = {
+      name: name,
+      password: password,
+      username: username,
+      createdAt: time,
+      country : countryName,
+    };
+    if (true) {
+      localStorage.setItem("tempStorage", JSON.stringify({ data: data }));
+    }
     if (
       name.trim().length !== 0 &&
       password.trim().length !== 0 &&
@@ -37,15 +72,6 @@ const Login = () => {
         alert("user exists");
       }
 
-      let data = {
-        name: name,
-        password: password,
-        username: username,
-        createdAt: time,
-      };
-      if (localStorage.getItem("tempStorage")) {
-        localStorage.setItem("tempStorage", JSON.stringify({ data: data }));
-      }
       const res = await axios.post(
         "https://617f9299055276001774fb25.mockapi.io/chat",
         data
@@ -63,6 +89,10 @@ const Login = () => {
       }
     }
   };
+
+ 
+
+
 
   
 

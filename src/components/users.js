@@ -4,6 +4,7 @@ import axios from "axios";
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [show, setShow] = useState(true);
+  
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -32,21 +33,21 @@ const Users = () => {
           alt="user"
           className="userImage"
           src={usr.avatar}
-          style={{ width: "10%", height: "10%", borderRadius: "50%" }}
+          style={{ width: "10%", height: "10%", borderRadius: "35%" }}
           onClick={() => userInfo(usr.id)}
         ></img>
         {show ? (
           <>
             {" "}
-            <h3 style={{ color: "brown" }}>{usr.username}</h3>
+            <h3 style={{ color: "green" }}>{usr.username}</h3>
             <h5>loged at {usr.createdAt}</h5>{" "}
           </>
         ) : (
           <>
             {" "}
-            <h3 style={{ color: "brown" }}>User id: {usr.id}</h3>
-            <h3 style={{ color: "brown" }}>User name: {usr.name}</h3>
-            <h3 style={{ color: "brown" }}>User password: {usr.password}</h3>
+            <h3 style={{ color: "green'" }}>User id: {usr.id}</h3>
+            <h3 style={{ color: "white'" }}>User name: {usr.name}</h3>
+            <h3 style={{ color: "white'" }}>From: {usr.country}</h3>
             
             
           </>
