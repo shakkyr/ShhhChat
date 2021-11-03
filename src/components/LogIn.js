@@ -21,22 +21,7 @@ const Login = () => {
   }, []);
 
   const signIn = async () => {
-    if (
-      name.trim().length !== 0 &&
-      password.trim().length !== 0 &&
-      username.trim().length !== 0
-    ) {
-      let newState = [...state];
-      let find = newState.find((usr) => {
-        if (usr.name === username && usr.username === username) {
-          return usr;
-        }
-      });
-      console.log(find);
-      if (find !== undefined) {
-        alert("user exists");
-      }
-
+  
       let data = {
         name: name,
         password: password,
@@ -62,7 +47,7 @@ const Login = () => {
         setTime("");
       }
     }
-  };
+  
 
   
 
