@@ -23,7 +23,6 @@ const Chat = () => {
     <div className="chatBox">
       <div className="leftSide">
         <div className="usersList">
-          here will be the users
           <input type="button" value="logOut" onClick={(e)=>handleLogOut(e)}/>
           <Users />
         </div>
