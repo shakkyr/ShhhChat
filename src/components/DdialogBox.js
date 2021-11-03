@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React,{useEffect, useState} from 'react'
 import axios from 'axios'
+import Likes from './Likes';
 
 const DialogBox = ()=> {
 const [messages, setMessages] = useState([]);
@@ -37,7 +38,7 @@ const cheMessages = async ()=> {
     return messages.map(msg=>{
         return <div className='messages' key={msg.id}>
             <h3>{msg.input}</h3>
-            <h6><span style={{color:"brown"}}> From: </span>{msg.userId} recived at: {msg.createdAt}</h6>
+            <h6><span style={{color:"brown"}}> From: </span>{msg.userId} recived at: {msg.createdAt}<Likes/></h6>
         </div>
     })
 }

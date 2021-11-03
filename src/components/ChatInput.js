@@ -26,7 +26,7 @@ const getData = async () => {
     let data = {
       input : chatBar,
       createdAt : time,
-      userId :  `${id}`
+      userId :  id
     };
     const res = await axios.post(
       "https://617f9299055276001774fb25.mockapi.io/chatbar",
@@ -57,6 +57,7 @@ function handleOnEnter (text) {
       <InputEmoji
       value={text}   
       cleanOnEnter
+      id={id}
       onEnter={handleOnEnter}
       placeholder="Type a message"
     />

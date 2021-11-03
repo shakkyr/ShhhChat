@@ -4,7 +4,7 @@
   padding: 0;
 }
 .chatBox {
-  background-color: rgb(187, 182, 177);
+  background-color: rgb(97, 107, 112);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -25,6 +25,7 @@
   flex: 2;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.6);
   overflow: scroll;
+  width: 100%;
 }
 
 .usersList {
@@ -33,13 +34,21 @@
   height: 90%;
 }
 
+
 .text {
   box-sizing: border-box;
 }
 
 .messages {
   border-bottom: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding: 3%;
 }
+.messages >h6 {
+display: flex;
+}
+
 .users {
   border-bottom: 0.5px solid rgb(167, 167, 167);
 }
@@ -50,9 +59,12 @@
 }
 
 .appName {
-  position: fixed;
-  background-color:rgba(0, 0, 0, 0.6);
-  width: 100%;
+  position:fixed;
+  background-color:rgba(0, 0, 0, 0.4);
+  width: 20%;
   color: whitesmoke;
   padding: 10px;
+  
+
+
 }
