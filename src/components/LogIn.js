@@ -4,12 +4,14 @@ import React, {useEffect, useState} from "react";
 import "./LogIn.css";
 import axios from "axios";
 import { useHistory } from 'react-router-dom';
+// import useLocalStorage from 'react-use-localstorage';
 const Login =() => {
   const [state, setState] = React.useState([]);
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUserName] = useState('');
     const [time, setTime] = useState('');
+    
     let history = useHistory();
     
 useEffect(()=> {
@@ -42,6 +44,10 @@ const signIn = async () => {
       username: username,
       createdAt : time,
     };
+    if (!localStorage.getItem("tempStorage")){
+      localStorage.setItem("tempStorage", JSON.stringify({ data: data }))
+
+    }
     const res = await axios.post(
       "https://617f9299055276001774fb25.mockapi.io/chat",
       data
@@ -59,6 +65,33 @@ const signIn = async () => {
     }
   }
 };
+
+// async function getData() {
+//   if (!localStorage.getItem("tempStorage")) {
+//       let data1 = await (await fetch('https://corona-api.com/countries')).json();
+//       let data2 = await (await fetch('https://api.allorigins.win/raw?url=https://restcountries.herokuapp.com/api/v1')).json();
+//       localStorage.setItem("tempStorage", JSON.stringify({ data1: data1, data2: data2 }))
+      
+//   }
+//   let data = JSON.parse(localStorage.getItem("tempStorage"))
+
+//   data.data2.forEach(ele => {
+//       data.data1.data.forEach(element => {
+          
+          
+//           if (ele.region === "Asia" && element.code == ele.cca2) {
+//               regions.asia[ele.cca2] = { country: ele.name.common, data: element.latest_data };
+          
+//           } else if (ele.region === "Europe" && element.code == ele.cca2) {
+//               regions.europe[ele.cca2] = { country: ele.name.common, data: element.latest_data };
+//           } else if (ele.region === "Americas" && element.code == ele.cca2) {
+//               ; regions.americas[ele.cca2] = { country: ele.name.common, data: element.latest_data }
+//           } else if (ele.region === "Africa" && element.code == ele.cca2) {
+//               regions.africa[ele.cca2] = { country: ele.name.common, data: element.latest_data };
+//           }   
+//       })
+//   })
+// }
 
 
 
@@ -111,5 +144,4 @@ const handleSubmit = (event) => {
 export default Login;
 
 
-    
 

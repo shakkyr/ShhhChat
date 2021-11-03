@@ -17,6 +17,8 @@ useEffect(()=> {
 
 },[chatBar])
 
+let localStorageName = JSON.parse(localStorage.getItem("tempStorage"))
+
 const getData = async () => {
   if (
     chatBar.trim().length !== 0 &&
@@ -26,7 +28,7 @@ const getData = async () => {
     let data = {
       input : chatBar,
       createdAt : time,
-      userId :  id
+      userId :  localStorageName.data.name
     };
     const res = await axios.post(
       "https://617f9299055276001774fb25.mockapi.io/chatbar",
@@ -52,6 +54,8 @@ function handleOnEnter (text) {
         let today = new Date();
           setTime(today)
       }
+
+     
 
     return (
       <InputEmoji
