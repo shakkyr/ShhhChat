@@ -12,7 +12,6 @@ const [time, setTime] = useState('');
 const [didMount, setDidMount] = useState(false); 
 
 
-
 useEffect(()=> {
   getData()
   setDidMount(true);
@@ -23,9 +22,6 @@ useEffect(()=> {
 
 let localStorageName = JSON.parse(localStorage.getItem("tempStorage"))
 
-
-console.log(didMount);
-
 const getData = async () => {
   if (
     chatBar.trim().length !== 0 &&
@@ -35,7 +31,7 @@ const getData = async () => {
     let data = {
       input : chatBar,
       createdAt : time,
-      userId :  localStorageName.data.username,
+      userId :  localStorageName.data.username
     };
     const res = await axios.post(
       "https://617f9299055276001774fb25.mockapi.io/chatbar",

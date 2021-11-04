@@ -11,6 +11,7 @@ useEffect(()=>{
     const intervalId = setInterval(() => {
         getMessages()
         cheMessages()
+        
       }, 5000) // in milliseconds
       return () => clearInterval(intervalId)
 },[])
@@ -35,11 +36,26 @@ const cheMessages = async ()=> {
     }
 }
 //! ============================================================================================
+// // let colors = ['green', 'blue','orange','teal','tomato']
+// const getRandomColor=()=> {
+//    let letters = '0123456789ABCDEF';
+//    let color = '#';
+//     for (let i = 0; i < 6; i++) {
+//       color += letters[Math.floor(Math.random() * 16)];
+//     }
+//     return color;
+//   }
+const generateColor = () => {
+    const randomColor = Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, '0');
+    return `#${randomColor}`;
+  };
 
     return messages.map(msg=>{
         return <div className='messages' key={msg.id}>
-            <h3>{msg.input}</h3>
-            <h6><span style={{color:"brown"}}> From: </span>{msg.userId} recived at: {msg.createdAt}<Likes /></h6>
+            <h2>{msg.input}</h2>
+            <h6><span style={{color:"brown"}}> From: </span><span style={{color:generateColor}}>{msg.userId}</span> recived at: {msg.createdAt}<Likes /></h6>
         </div>
     })
 }

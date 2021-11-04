@@ -33,7 +33,7 @@ const Users = () => {
           alt="user"
           className="userImage"
           src={usr.avatar}
-          style={{ width: "10%", height: "10%", borderRadius: "35%" }}
+          style={{ width: "10%", height: "10%", borderRadius: "50%" }}
           onClick={() => userInfo(usr.id)}
         ></img>
         {show ? (

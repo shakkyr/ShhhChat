@@ -53,7 +53,7 @@ const getGeoInfo = () => {
       createdAt: time,
       country : countryName,
     };
-    if (!localStorage.getItem("tempStorage")) {
+    if (true) {
       localStorage.setItem("tempStorage", JSON.stringify({ data: data }));
     }
     if (

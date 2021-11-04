@@ -89,6 +89,8 @@ display: flex;
   padding: 10px;
   margin-left: 25%;
   border-radius: 10px;
+}
 
-
+.emoji {
+  background-color:tomato;
 }
