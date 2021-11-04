@@ -46,6 +46,9 @@ const cheMessages = async ()=> {
 //     }
 //     return color;
 //   }
+window.scrollTo(0,document.body.scrollHeight);
+
+
 const generateColor = () => {
     const randomColor = Math.floor(Math.random() * 16777215)
       .toString(16)

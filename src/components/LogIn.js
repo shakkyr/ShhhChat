@@ -67,7 +67,6 @@ const getGeoInfo = () => {
           return usr;
         }
       });
-      console.log(find);
       if (find !== undefined) {
         alert("user exists");
       }
@@ -76,7 +75,6 @@ const getGeoInfo = () => {
         "https://617f9299055276001774fb25.mockapi.io/chat",
         data
       );
-      console.log("status=", res.status);
       if (res.status === 201) {
         let newData = res.data;
         const nameList = [...state];
@@ -123,6 +121,7 @@ const getGeoInfo = () => {
 
   return (
     <div className="login">
+    <p style={{color:'white', fontWeight:'800', fontSize:'2rem'}}>welcom to my little chat app <p style={{ color: "tomato" }}> Enjoy </p> & keep it clean</p>
       <div className="login__container">
         <div className="login__text">
           <h2>
@@ -159,7 +158,7 @@ const getGeoInfo = () => {
               onChange={(e) => setUserName(e.target.value)}
             />
           </label>
-          <input type="submit" onClick={(e) => textHandler(e)} />
+          <input type="submit" value ="log In"onClick={(e) => textHandler(e)} />
         </form>
         <div className="warningMessage">
           {userExistsWarning ? "" :
