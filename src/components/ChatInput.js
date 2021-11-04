@@ -4,7 +4,7 @@ import axios from 'axios'
 import InputEmoji from 'react-input-emoji'
 
 
-const ChatInput = ({id})=> {
+const ChatInput = ({id, container})=> {
   const [state, setState] = React.useState([]);
 const [chatBar, setChatBar] = useState('');
 const [text, setText] = useState('');

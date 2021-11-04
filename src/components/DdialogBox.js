@@ -2,6 +2,7 @@
 import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 import Likes from './Likes';
+import ReactScrollableFeed from 'react-scrollable-feed';
 
 const DialogBox = ()=> {
 const [messages, setMessages] = useState([]);
@@ -52,12 +53,15 @@ const generateColor = () => {
     return `#${randomColor}`;
   };
 
-    return messages.map(msg=>{
+    return <ReactScrollableFeed>
+         {messages.map(msg=>{
         return <div className='messages' key={msg.id}>
-            <h2>{msg.input}</h2>
-            <h6><span style={{color:"brown"}}> From: </span><span style={{color:generateColor}}>{msg.userId}</span> recived at: {msg.createdAt}<Likes /></h6>
+            <h4>{msg.input}</h4>
+            <h6><span style={{color:"brown"}}> From: </span><span style={{color:generateColor(),fontWeight:"bold", fontSize:"1.2rem"}}>{msg.userId}</span> recived at: {msg.createdAt}<Likes /></h6>
         </div>
-    })
+    })}
+    </ReactScrollableFeed>
+    
 }
 
 export default DialogBox;

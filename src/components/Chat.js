@@ -32,13 +32,13 @@ const Chat = () => {
           <Users />
         </div>
         <div className="chatText">
-        <ChatInput/>
-        <div ref={messagesEndRef} />
+        <ChatInput container={messagesEndRef} />
+        <div />
         </div>
       </div>
-      <div className="rightSide">
+      <div className="rightSide" ref={messagesEndRef}>
           <p className="appName">Keep it Clean <span style={{color:"tomato"}}>ShhhChat.....</span></p>
-          <DialogBox  />
+          <DialogBox  ref={messagesEndRef} />
           
       </div>
     </div>
