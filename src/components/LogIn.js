@@ -99,9 +99,9 @@ const getGeoInfo = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let localStorageName = JSON.parse(localStorage.getItem("tempStorage"))
-    if(localStorageName.data.username !==username && localStorageName.data.name !==name){
     signIn();
+    let localStorageName = JSON.parse(localStorage.getItem("tempStorage"))
+    if(localStorageName.data.username ===username && localStorageName.data.name ===name){
     history.push("/Chat");
     }
     else {
