@@ -11,7 +11,7 @@ const [text, setText] = useState('');
 const [time, setTime] = useState('');
 const [didMount, setDidMount] = useState(false); 
 
-
+console.log(didMount);
 useEffect(()=> {
   getData()
   setDidMount(true);

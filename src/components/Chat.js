@@ -38,8 +38,8 @@ const Chat = () => {
       </div>
       <div className="rightSide">
           <p className="appName">Keep it Clean <span style={{color:"tomato"}}>ShhhChat.....</span></p>
-          <DialogBox  ref={messagesEndRef} />
-          <div />
+          <DialogBox  />
+          
       </div>
     </div>
   );
